@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+ <title>Acceso a base de datos</title>
+
+ <script src="dompurify/purify.min.js"></script>
+ <script type="module" src="libclienteweb/manejaErrores.js"></script>
+
+ <style>
+   :root {
+     --bg-color: #8d7fb8c9;
+     --card-bg: #ffffff;
+     --text-color: #332a42;
+     --text-light: #6b5f7a;
+     --hover-pink: #ffd1dc;
+   }
+
+   body {
+     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+     background-color: var(--bg-color);
+     color: var(--text-color);
+     margin: 0;
+     padding: 20px;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     min-height: 100vh;
+     box-sizing: border-box;
+   }
+
+   .container {
+     background-color: var(--card-bg);
+     padding: 30px;
+     border-radius: 12px;
+     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+     width: 100%;
+     max-width: 500px;
+     box-sizing: border-box;
+   }
+
+   h1 {
+     color: var(--text-color);
+     font-size: 1.8rem;
+     margin-top: 0;
+     margin-bottom: 20px;
+     border-bottom: 2px solid #f0eaff;
+     padding-bottom: 10px;
+     text-align: center;
+   }
+
+   .btn-container {
+     text-align: center;
+     margin-bottom: 20px;
+   }
+
+   a {
+     display: inline-block;
+     background-color: #ffffff;
+     color: #000000;
+     text-decoration: none;
+     padding: 10px 25px;
+     border-radius: 8px;
+     font-weight: 600;
+     border: 2px solid #ebdfff;
+     transition: background-color 0.3s, transform 0.1s;
+   }
+
+   a:hover {
+     background-color: var(--hover-pink);
+     border-color: var(--hover-pink);
+   }
+
+   a:active {
+     transform: scale(0.98);
+   }
+
+   ul {
+     list-style: none;
+     padding: 0;
+     margin: 0;
+   }
+
+   li {
+     background-color: #fcfbfe;
+     border: 1px solid #ebdfff;
+     padding: 12px 15px;
+     border-radius: 8px;
+     margin-bottom: 10px;
+     color: var(--text-color);
+   }
+
+   progress {
+     width: 100%;
+     height: 12px;
+     accent-color: #b47cff;
+   }
+ </style>
+
+</head>
+
+<body>
+
+ <div class="container">
+   <h1>Acceso a base de datos</h1>
+
+   <div class="btn-container">
+     <p><a href="agrega.html">Agregar Usuario</a></p>
+   </div>
+
+   <ul id="lista">
+    <li><progress max="100">Cargando&hellip;</progress></li>
+   </ul>
+ </div>
+
+ <script type="module">
+  import { descargaVista } from "./libclienteweb/descargaVista.js"
+
+  
+  descargaVista("api/pasatiempo-vista-index.php")
+ </script>
+
+ </body>
+
+</html>
